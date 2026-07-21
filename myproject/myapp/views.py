@@ -13,3 +13,6 @@ def about(request):
 
 def contact(request):
     return HttpResponse("contact us")
+
+def register(request):
+    return HttpResponse("register.html")
