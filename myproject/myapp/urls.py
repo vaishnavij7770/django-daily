@@ -1,10 +1,12 @@
 from django.contrib import admin
 from django.urls import path,include
 
-from .import views
+from . import views
 
 urlpatterns = [
-    path('',views.home),
-    path('about',views.about),
-    path('contact',views.contact),
+    path('', views.home),
+    path('about', views.about),
+    path('contact', views.contact),
+    path('register', views.register),
+    path('formsave',views.formsave),
 ]

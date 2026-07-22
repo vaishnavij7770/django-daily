@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import register 
 
 # Create your views here.
 
@@ -15,4 +16,18 @@ def contact(request):
     return HttpResponse("contact us")
 
 def register(request):
-    return HttpResponse("register.html")
+    return render(request, "register.html")
+
+
+def formsave(request):
+    if request.method=="POST":
+        fn=request.POST["fullname"]
+        em=request.POST["email"]
+        cn=request.POST["contact"]
+        ps=request.POST["password"]
+
+        r = register(fullname=fn, email=em, contact=cn, password=ps)
+        r.save()
+        return HttpResponse("Registration saved")
+    else:
+        return HttpResponse("failed")
