@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import register 
-
+from .models import Register
 # Create your views here.
 
 def home(request):
@@ -26,7 +25,7 @@ def formsave(request):
         cn=request.POST["contact"]
         ps=request.POST["password"]
 
-        r = register(fullname=fn, email=em, contact=cn, password=ps)
+        r = Register(fullname=fn, email=em, contact=cn, password=ps)
         r.save()
         return HttpResponse("Registration saved")
     else:
