@@ -11,4 +11,4 @@ class register(models.Model):
     email=models.EmailField(max_length=20)
     password=models.CharField(max_length=6)
     contact=models.CharField(max_length=50)
-    # address=models.CharField(max_length=50)
+    address=models.CharField(max_length=50,default="Pune")

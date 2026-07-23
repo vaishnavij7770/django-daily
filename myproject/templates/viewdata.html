@@ -10,8 +10,27 @@
 </head>
 <body>
     {% include 'nav.html' %}
-    <h1>Home Page</h1>
-    
+    <h1>Registered Student</h1>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Fullname</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Contact</th>
+            <th>Address</th>
+        </tr>
+        {%for i in data%}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.fullname}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.password}}</td>
+            <td>{{i.contact}}</td>
+            <td>{{i.address}}</td>
+        </tr>
+        {%endfor%}
+    </table>
     
 </body>
 </html>
