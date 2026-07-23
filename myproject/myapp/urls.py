@@ -12,4 +12,9 @@ urlpatterns = [
     path('registration',views.registration),
     path('saveform',views.saveform),
     path('viewdata',views.viewdata),
+    # path('deletestudent/<int:id>',views.deletestudent),
+    path('deletestudent',views.deletestudent),
+    path('updatestudent',views.updatestudent),
+    path('profileupdate',views.profileupdate),
+
 ]

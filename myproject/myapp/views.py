@@ -53,3 +53,34 @@ def saveform(request):
 def viewdata(request):
     data1=register.objects.all().order_by('-id')
     return render(request, "viewdata.html",{'data':data1})
+
+# def deletestudent(request,id):
+#     register.objects.filter(id=id).delete()
+#     return redirect("/viewdata")
+
+def deletestudent(request):
+    id=request.GET["id"]
+    register.objects.filter(id=id).delete()
+    return redirect("/viewdata")
+
+def updatestudent(request):
+    id=request.GET["id"]
+    data1=register.objects.filter(id=id)
+    return render(request,"update.html",{'data':data1})
+
+def profileupdate(request):
+    if request.method=="POST":
+        id=request.POST["id"]
+        fn=request.POST["fullname"]
+        em=request.POST["email"]
+        cn=request.POST["contact"]
+        ps=request.POST["password"]
+        ad=request.POST["address"]
+        
+        register.objects.filter(id=id).update(fullname=fn, email=em, contact=cn, password=ps,address=ad)
+          #update  
+                # return HttpResponse("Registration saved")
+        return redirect("/viewdata")
+    else:
+                # return HttpResponse("failed")
+        return  HttpResponse("failed")
